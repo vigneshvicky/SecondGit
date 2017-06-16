@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Nested directivetitle</title>
+  
+
+  <script src="js/lib/angular.min.js"></script>
+  
+
+  
+</head>
+<body ng-app="myApp">
+<input type="text" ng-model="thereUrl"/>
+  <div my-directive some-attr="thereUrl" abcd={{thereUrl}} my-link-text = "Click me to go to google {{thereUrl}}"></div>
+
+  <script>
+    angular
+      .module("myApp",[])
+      .directive("myDirective",function(){
+        return{
+          restrict:"A",
+          scope:{            
+            myUrl:'=someAttr',
+            myLinkText:"@"
+          },
+          template:'<div><input type="text" ng-model="myUrl"/> <a href="{{myUrl}}">{{myLinkText}}</a></div>'
+        }
+      })
+  </script>
+</body>
+</html>
+
+<!-- 
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+-->
