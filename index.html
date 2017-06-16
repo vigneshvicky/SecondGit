@@ -19,14 +19,15 @@
       .module("myApp",[])
       .directive("myDirective",function(){
         return{
-          restrict:"E",
+          restrict:"A",
           scope:{            
             myUrl:'=someAttr',
-            myLinkText:"@"
+            myLinkText:"@",
+			event:"$"
           },
           template:'<div><input type="text" ng-model="myUrl"/> <a href="{{myUrl}}">{{myLinkText}}</a></div>'
         }
-      });
+      })
   </script>
 </body>
 </html>
