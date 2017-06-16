@@ -12,21 +12,21 @@
 </head>
 <body ng-app="myApp">
 <input type="text" ng-model="thereUrl"/>
-  <div my-directive some-attr="thereUrl" abcd={{thereUrl}} my-link-text = "Click me to go to google {{thereUrl}}"></div>
+  <my-directive some-attr="thereUrl" abcd={{thereUrl}} my-link-text = "Click me to go to google {{thereUrl}}"></my-directive>
 
-  <script>
+  <script>  
     angular
       .module("myApp",[])
       .directive("myDirective",function(){
         return{
-          restrict:"A",
+          restrict:"E",
           scope:{            
             myUrl:'=someAttr',
             myLinkText:"@"
           },
           template:'<div><input type="text" ng-model="myUrl"/> <a href="{{myUrl}}">{{myLinkText}}</a></div>'
         }
-      })
+      });
   </script>
 </body>
 </html>
